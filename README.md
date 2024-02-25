@@ -1,8 +1,9 @@
-## EC2 NGINX Setup 
+## EC2 and NGINX Setup 
 
-Install NGINX and the official Ansible role through yum 
+Install esentials, NGINX, and the official Ansible role through yum 
 
 ```
+sudo yum -y install git
 sudo yum -y install python-pip
 pip install ansible 
 ansible-galaxy install nginxinc.nginx
@@ -11,6 +12,7 @@ ansible-galaxy install nginxinc.nginx
 Clone this repo, which includes playbook.yml, then run: 
 
 ```
+git clone https://github.com/CPSC5071/mtvsrs.git
 ansible-playbook playbook.yml
 ```
 
