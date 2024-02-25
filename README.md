@@ -16,6 +16,8 @@ git clone https://github.com/CPSC5071/mtvsrs.git
 ansible-playbook playbook.yml
 ```
 
+Make sure to add inbound rules for TCP:8000
+
 ## Local Development 
 
 ```
