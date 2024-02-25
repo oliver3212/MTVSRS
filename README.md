@@ -47,9 +47,9 @@ NOTE:
 
 In a real prod scenario, we shouldn't be using Django's default web server, use something like Gunicorn instead (https://docs.djangoproject.com/en/3.2/ref/django-admin/#runserver)
 
-> DO NOT USE THIS SERVER IN A PRODUCTION SETTING. It has not gone through security audits or performance tests.\
-(And that’s how it’s gonna stay. We’re in the business of making Web frameworks, not Web servers, so improving this\
-server to be able to handle a production environment is outside the scope of Django.)
+> DO NOT USE THIS SERVER IN A PRODUCTION SETTING. It has not gone through security audits or performance tests.
+> (And that’s how it’s gonna stay. We’re in the business of making Web frameworks, not Web servers, so improving this
+> server to be able to handle a production environment is outside the scope of Django.)
 
 ## Local Development 
 
