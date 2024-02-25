@@ -16,7 +16,9 @@ git clone https://github.com/CPSC5071/mtvsrs.git
 ansible-playbook playbook.yml
 ```
 
-Make changes to /etc/nginx/nginx.conf to redirect to port 8000, use the file in repo 
+Make changes to /etc/nginx/nginx.conf to redirect to port 8000, use the file in repo. 
+
+(Not best practice, should modularize configs in conf.d/)
 
 ```
 sudo cp nginx.conf ~/etc/nginx/nginx.conf
@@ -35,12 +37,12 @@ echo "export SECRET_KEY='$(openssl rand -hex 40)'" > .DJANGO_SECRET_KEY
 source .DJANGO_SECRET_KEY
 ```
 
-Start Django app 
+Start Django app as a background process
 
 ```
 pip install -r requirements.txt
 python3 manage.py migrate
-python3 manage.py runserver
+nohup python3 manage.py runserver &
 ```
 
 NOTE: 
