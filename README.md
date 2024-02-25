@@ -36,8 +36,10 @@ source .DJANGO_SECRET_KEY
 ```
 
 Start Django app 
+
 ```
-TODO
+python3 manage.py migrate
+python3 manage.py runserver
 ```
 
 NOTE: 
