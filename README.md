@@ -24,10 +24,10 @@ Make changes to /etc/nginx/nginx.conf to redirect to port 8000, use the file in 
 sudo cp nginx.conf ~/etc/nginx/nginx.conf
 ```
 
-Make sure to add inbound rules for TCP:8000 in AWS, then start the NGINX service 
+Enable (or just start) the NGINX service 
 
 ```
-sudo systemctl start nginx
+sudo systemctl enable nginx
 ```
 
 Generate new Django SECRET_KEY (which really is more of a *salt*..) to environment, as we shouldn't hardcode secrets.
