@@ -27,7 +27,7 @@ except KeyError as e:
     raise RuntimeError("SECRET_KEY does not exist in environment") from e
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 

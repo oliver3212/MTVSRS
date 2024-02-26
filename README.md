@@ -53,7 +53,24 @@ In a real prod scenario, we shouldn't be using Django's default web server, use 
 > (And that’s how it’s gonna stay. We’re in the business of making Web frameworks, not Web servers, so improving this
 > server to be able to handle a production environment is outside the scope of Django.)
 
+## Pulling changes and connecting to EC2 
+
+After new changes have been merged to main branch, we need to SSH to our EC2, pull the changes, then restart the server. 
+
+Ask Devin for pem file.
+
+```
+ssh -i devin.pem ec2-user@3.85.11.137
+cd mtvsrs 
+git pull 
+kill $(ps aux | grep "[p]ython3 manage.py runserver" | head -n 1 | awk '{print $2}')
+python3 manage.py migrate 
+nohup python3 manage.py runserver &
+```
+
 ## Local Development 
+
+Set mtvsrs/settings.py DEBUG = True, then: 
 
 ```
 pip install -r requirements.txt
