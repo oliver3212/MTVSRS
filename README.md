@@ -37,6 +37,21 @@ echo "export SECRET_KEY='$(openssl rand -hex 40)'" > .DJANGO_SECRET_KEY
 source .DJANGO_SECRET_KEY
 ```
 
+Change the password in settings.py
+
+```
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "mm_team06_01",
+        'USER': 'admin',
+        'PASSWORD': '<INSERT PASSWORD HERE>',
+        'HOST': 'cpsc5071.cnsskm04otsd.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
+    }
+}
+```
+
 Start Django app as a background process
 
 ```
@@ -55,7 +70,7 @@ In a real prod scenario, we shouldn't be using Django's default web server, use 
 
 ## Pulling changes and connecting to EC2 
 
-After new changes have been merged to main branch, we need to SSH to our EC2, pull the changes, then restart the server. 
+After new changes have been merged to main branch, we need to SSH to our EC2 and pull the changes.
 
 Ask Devin for pem file.
 
@@ -63,8 +78,28 @@ Ask Devin for pem file.
 ssh -i devin.pem ec2-user@3.85.11.137
 cd mtvsrs 
 git pull 
+```
+
+Change the password in settings.py
+
+```
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "mm_team06_01",
+        'USER': 'admin',
+        'PASSWORD': '<INSERT PASSWORD HERE>',
+        'HOST': 'cpsc5071.cnsskm04otsd.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
+    }
+}
+```
+
+Restart the server
+
+```
 kill $(ps aux | grep "[p]ython3 manage.py runserver" | head -n 1 | awk '{print $2}')
-python3 manage.py migrate 
+python3 manage.py migrate
 nohup python3 manage.py runserver &
 ```
 

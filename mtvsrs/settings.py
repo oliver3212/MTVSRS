@@ -27,7 +27,7 @@ except KeyError as e:
     raise RuntimeError("SECRET_KEY does not exist in environment") from e
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -79,8 +79,12 @@ WSGI_APPLICATION = "mtvsrs.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "mm_team06_01",
+        'USER': 'admin',
+        'PASSWORD': '<INSERT PASSWORD HERE>',
+        'HOST': 'cpsc5071.cnsskm04otsd.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
