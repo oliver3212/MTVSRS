@@ -1,8 +1,41 @@
 {% extends "base.html" %} {% block title %} Home Page {% endblock %}
 {% block content %}
-    {% if row %}
-        {{ row }}
-    {% else %}
-        <p>No data found.</p>
-{% endif %}
+    <h2 class="mt-5 mb-3">New Releases</h2>
+    <div class="scrolling-wrapper">
+        {% for i in card_count %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Title {{ i }}</h5>
+                    <p class="card-text">Movie Description</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h2 class="mt-5 mb-3">Recommended for You</h2>
+    <div class="scrolling-wrapper">
+        {% for i in card_count %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Title {{ i }}</h5>
+                    <p class="card-text">Movie Description</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h2 class="mt-5 mb-3">Trending</h2>
+    <div class="scrolling-wrapper">
+        {% for i in card_count %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Movie Title {{ i }}</h5>
+                    <p class="card-text">Movie Description</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

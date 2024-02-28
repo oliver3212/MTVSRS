@@ -5,15 +5,8 @@ from django.db import connection, transaction
 
 # @login_required()
 def home(request):
-    cursor = connection.cursor()
-
-    cursor.execute("SELECT * FROM User")
-    row = cursor.fetchone()
-
-    cursor.close()
-
     context = {
-        'row': row,
+        'card_count': range(10)
     }
     return render(request, "home.html", context)
 
