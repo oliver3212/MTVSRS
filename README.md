@@ -79,24 +79,10 @@ cd mtvsrs
 git pull 
 ```
 
-Change the password in settings.py
-
-```
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "mm_team06_01",
-        'USER': 'admin',
-        'PASSWORD': '<INSERT PASSWORD HERE>',
-        'HOST': 'cpsc5071.cnsskm04otsd.us-east-1.rds.amazonaws.com',
-        'PORT': '3306',
-    }
-}
-```
-
 Restart the server
 
 ```
+source .DJANGO_SECRET_KEY
 kill $(ps aux | grep "[p]ython3 manage.py runserver" | head -n 1 | awk '{print $2}')
 python3 manage.py migrate
 nohup python3 manage.py runserver &
