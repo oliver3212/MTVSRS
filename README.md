@@ -1,10 +1,9 @@
 ## EC2 and NGINX Setup 
 
-Install esentials, NGINX, and the official Ansible role through yum 
+Install essentials, NGINX, MariaDB (mostly to provide mysql_config which is used by mysqlclient package for Django's connector) and the official Ansible role
 
 ```
-sudo yum -y install git
-sudo yum -y install python-pip
+sudo yum -y install git python-pip mariadb105-devel gcc python3.9-devel
 pip install ansible 
 ansible-galaxy install nginxinc.nginx
 ```
