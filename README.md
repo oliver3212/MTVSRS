@@ -69,19 +69,17 @@ In a real prod scenario, we shouldn't be using Django's default web server, use 
 
 ## Pulling changes and connecting to EC2 
 
-After new changes have been merged to main branch, we need to SSH to our EC2 and pull the changes.
-
-Ask Devin for pem file.
+After new changes have been merged to main branch, we need to SSH to our EC2 (ask Devin for pem file)
 
 ```
-ssh -i devin.pem ec2-user@3.85.11.137
-cd mtvsrs 
-git pull 
+ssh -i devin.pem ec2-user@3.85.11.137 
 ```
 
-Restart the server
+Pull the changes and restart the server
 
 ```
+cd mtvsrs
+git pull
 source .DJANGO_SECRET_KEY
 kill $(ps aux | grep "[p]ython3 manage.py runserver" | head -n 1 | awk '{print $2}')
 python3 manage.py migrate
@@ -90,7 +88,11 @@ nohup python3 manage.py runserver &
 
 ## Local Development 
 
-Set mtvsrs/settings.py DEBUG = True, then: 
+1. Get .DJANGO_SECRET_KEY file from Devin, then run command `source .DJANGO_SECRET_KEY`
+2. In settings.py:
+    1. Set DEBUG to True
+    2. Set DB Password
+3. Run the server:
 
 ```
 pip install -r requirements.txt
