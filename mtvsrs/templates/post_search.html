@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h2>Search Result</h2>
+    <!-- Search Form -->
+    <form action="{% url 'search_view' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="search_query" placeholder="Enter movie name...">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Display Results -->
+    {% if query %}
+        <div>
+            <h3>Results for "{{ query }}":</h3>
+            {% if posts %}
+                {% for post in posts %}
+                    <div>
+                        <p>Movie ID: {{ post.movie_id }}</p>
+                        <p>Movie Name: {{ post.name }}</p>
+                        <p>Movie Description: {{ post.description }}</p>
+                        <p>Movie Genre: {{ post.genre }}</p>
+                        <p>Movie Release Date: {{ post.release_date }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h3>No search results found.</h3>
+            {% endif %}
+        </div>
+    {% else %}
+        <h3>Please enter a search query.</h3>
+    {% endif %}
+</body>
+</html>
